@@ -1,39 +1,51 @@
 package com.swissre.hackathon.app.model;
 
-import java.util.List;
-
 import javax.persistence.*;
 
-import com.swissre.hackathon.app.util.StringListConverter;
-
-@Table(name = "route")
+@Table(name = "metro")
 @Entity
-public class Route {
+public class Metro {
+
+	
 	@Id
+	@Column(name="METROKEY")
+    private String metroKey;
+
+	@Column(name="METROID")
+    private String metroId;
+	
 	@Column(name="ROUTEID")
     private String routeId;
 	
-	@Column(name="ROUTENAME")
-    private String routeName;
+	@Column(name="NOOFCOACHES")
+    private String noOfCoaches;
 	
-	@Column(name="SOURCE")
-    private String source;
+	@Column(name="CROWDEDSTATUS")
+    private String crowdedStatus;
 	
-	@Column(name="DESTINATION")
-    private String destination;
-    
-    @Convert(converter = StringListConverter.class)
-    @Column(name="STATIONS")
-    private List<String> stations;
-    
-    public Route() {};
+	@Column(name="CURRENTSTATION")
+    private String currentStation;
+	
+	@Column(name="NEXTSTATION")
+    private String nextStation;
+	
+	public Metro() {};
 
-    public Route(String routeId, String routeName, String source, String destination, List<String> stations) {
+    public Metro(String metroId, String routeId, String noOfCoaches, String crowdedStatus, String currentStation, String nextStation) {
+        this.metroId = metroId;
         this.routeId = routeId;
-        this.routeName = routeName;
-        this.source = source;
-        this.destination = destination;
-        this.stations = stations;
+        this.noOfCoaches = noOfCoaches;
+        this.crowdedStatus = crowdedStatus;
+        this.currentStation = currentStation;
+        this.nextStation = nextStation;
+    }
+
+    public String getMetroId() {
+        return metroId;
+    }
+
+    public void setMetroId(String metroId) {
+        this.metroId = metroId;
     }
 
     public String getRouteId() {
@@ -44,35 +56,35 @@ public class Route {
         this.routeId = routeId;
     }
 
-    public String getRouteName() {
-        return routeName;
+    public String getNoOfCoaches() {
+        return noOfCoaches;
     }
 
-    public void setRouteName(String routeName) {
-        this.routeName = routeName;
+    public void setNoOfCoaches(String noOfCoaches) {
+        this.noOfCoaches = noOfCoaches;
     }
 
-    public String getSource() {
-        return source;
+    public String getCrowdedStatus() {
+        return crowdedStatus;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setCrowdedStatus(String crowdedStatus) {
+        this.crowdedStatus = crowdedStatus;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getCurrentStation() {
+        return currentStation;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setCurrentStation(String currentStation) {
+        this.currentStation = currentStation;
     }
 
-    public List<String> getStations() {
-        return stations;
+    public String getNextStation() {
+        return nextStation;
     }
 
-    public void setStations(List<String> stations) {
-        this.stations = stations;
+    public void setNextStation(String nextStation) {
+        this.nextStation = nextStation;
     }
 }
