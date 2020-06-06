@@ -6,7 +6,11 @@ import javax.persistence.*;
 @Entity
 public class Metro {
 
+	
 	@Id
+	@Column(name="METROKEY")
+    private String metroKey;
+
 	@Column(name="METROID")
     private String metroId;
 	
